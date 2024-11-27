@@ -1,0 +1,223 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+export const seed = async function (knex) {
+  await knex('BakeryAwards').insert([
+    // Bacon & Egg
+    {
+      Flavor: 'Bacon & Egg',
+      Place: 'Gold Award',
+      Baker: 'Mr Cheth Bun',
+      Bakery: 'Eurobake Espresso Ltd',
+      Address: '45 Main Road, Kumeū 0810, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: 'Silver Award',
+      Baker: 'Mrs Theara Keo',
+      Bakery: 'Taste Bakery and Roast',
+      Address: '226-250 Lincoln Road, Henderson, Auckland 0610, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: 'Bronze Award',
+      Baker: 'Mr Seila Ly',
+      Bakery: 'Hillcrest Bakery & Cafe',
+      Address: '145 Cambridge Road, Hillcrest, Hamilton 3216, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: 'Highly Commended',
+      Baker: 'Mr Tola Chhunleng',
+      Bakery: 'Freemans Bakery and Cafe',
+      Address: '2/444 Glenfield Road, Glenfield, Auckland, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: '5th',
+      Baker: 'Mr Sean Vo',
+      Bakery: 'Levain Artisan Bakery',
+      Address: '224 White Swan Road, Mount Roskill, Auckland 1041, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: '6th',
+      Baker: 'Mr Patrick Lam',
+      Bakery: 'Patricks Pie Group Limited',
+      Address: '2 Taurikura Drive, Tauriko, Tauranga 3110, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: '7th',
+      Baker: 'Mr Tongmin Li',
+      Bakery: 'Hillpark Bakery Manurewa',
+      Address: '75 Grande Vue Road, Hillpark, Auckland 2102, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: '8th',
+      Baker: 'Mrs Tina Yi',
+      Bakery: 'Mairangi Bay Bakery',
+      Address: '366D Beach Road, Mairangi Bay, Auckland 0630, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: '9th',
+      Baker: 'Mrs Sopheap Long',
+      Bakery: 'Euro Patisserie Torbay',
+      Address: '1028 Beach Road, Torbay, Auckland 0630, New Zealand',
+    },
+    {
+      Flavor: 'Bacon & Egg',
+      Place: '10th',
+      Baker: 'Mr Sok Heang Nguon',
+      Bakery: 'Taste Cafe and Bakery Avondale',
+      Address: '1A Crayford Street West, Avondale, Auckland 1026, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: 'Gold Award',
+      Baker: 'Ms Arlyn Thompson',
+      Bakery: 'Rangiora Bakery',
+      Address: '18 High Street, Rangiora 7400, New Zealand',
+    },
+
+    // Mince & Gravy
+    {
+      Flavor: 'Mince & Gravy',
+      Place: 'Silver Award',
+      Baker: 'Mr Soem Top',
+      Bakery: 'Dinsdale Bakery',
+      Address: '18 Whatawhata Road, Dinsdale, Hamilton 3204, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: 'Bronze Award',
+      Baker: 'Mrs Tina Yi',
+      Bakery: 'Mairangi Bay Bakery',
+      Address: '366D Beach Road, Mairangi Bay, Auckland 0630, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: 'Highly Commended',
+      Baker: 'Mr Jason Hay',
+      Bakery: 'Richoux Patisserie Ellerslie',
+      Address: '119 Main Highway, Ellerslie, Auckland 1051, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: '5th',
+      Baker: 'Mr Kaing Sok',
+      Bakery: 'My Bakery Cafe',
+      Address: '6/4055 Great North Road, Glen Eden, Auckland, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: '6th',
+      Baker: 'Mr Cheth Bun',
+      Bakery: 'Eurobake Espresso Ltd',
+      Address: '45 Main Road, Kumeū 0810, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: '7th',
+      Baker: 'Mrs Vicheka Se',
+      Bakery: 'Green Bay Bakery',
+      Address: '58A Godley Road, Green Bay, Auckland 0604, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: '8th',
+      Baker: 'Mrs Theara Keo',
+      Bakery: 'Taste Bakery and Roast',
+      Address: '226-250 Lincoln Road, Henderson, Auckland 0610, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: '9th',
+      Baker: 'Mr Jason Danielson',
+      Bakery: 'Kaipai Bakery',
+      Address: '27 Frederick Street, Wānaka 9305, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Gravy',
+      Place: '10th',
+      Baker: 'Mrs Sopheap Long',
+      Bakery: 'Euro Patisserie Torbay',
+      Address: '1028 Beach Road, Torbay, Auckland 0630, New Zealand',
+    },
+
+    //Mince & Cheese
+    {
+      Flavor: 'Mince & Cheese',
+      Place: 'Gold Award',
+      Baker: 'Mrs Theara Keo',
+      Bakery: 'Taste Bakery and Roast',
+      Address: '226-250 Lincoln Road, Henderson, Auckland 0610, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: 'Silver Award',
+      Baker: 'Mr Kaing Sok',
+      Bakery: 'My Bakery Cafe',
+      Address: '6/4055 Great North Road, Glen Eden, Auckland, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: 'Bronze Award',
+      Baker: 'Mrs Sopheap Long',
+      Bakery: 'Euro Patisserie Torbay',
+      Address: '1028 Beach Road, Torbay, Auckland 0630, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: 'Highly Commended',
+      Baker: 'Mr Jason Hay',
+      Bakery: 'Richoux Patisserie Ellerslie',
+      Address: '119 Main Highway, Ellerslie, Auckland 1051, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: '5th',
+      Baker: 'Mr Jason Danielson',
+      Bakery: 'Kaipai Bakery',
+      Address: '27 Frederick Street, Wānaka 9305, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: '6th',
+      Baker: 'Mr Mab Chheur',
+      Bakery: 'Angkor Wat Kiwi Bakery and Cafe',
+      Address: '110 Dickens Street, Napier South, Napier 4110, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: '7th',
+      Baker: 'Mr Chamnan Ly',
+      Bakery: 'Piefee',
+      Address: '349 Karangahape Road, Auckland CBD, Auckland 1010, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: '8th',
+      Baker: 'Mr Sheng Pheng Rong',
+      Bakery: 'Panorama Bakery and Cafe',
+      Address: '44 Panorama Road, Mount Wellington, Auckland 1060, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: '9th',
+      Baker: 'Mr Seila Ly',
+      Bakery: 'Hillcrest Bakery & Cafe',
+      Address: '145 Cambridge Road, Hillcrest, Hamilton 3216, New Zealand',
+    },
+    {
+      Flavor: 'Mince & Cheese',
+      Place: '10th',
+      Baker: 'Mr Kim Sroeun',
+      Bakery: 'Quality Inn Bakery',
+      Address: '34 Arawa Street, Matamata 3400, New Zealand',
+    },
+  ])
+}
