@@ -6,37 +6,16 @@ const pieRouter = express.Router()
 // GET /api/v1/pies
 pieRouter.get('/', async (req, res) => {
   try {
-    console.log('hit')
-
     const pies = await db.getPies()
     res.json(pies)
   } catch (e) {
     res.sendStatus(500)
   }
 })
-
-// GET /api/v1/pies/:id/
-pieRouter.get('/:id', async (req, res) => {
+// GET /api/pies/shops
+pieRouter.get('/shops', async (req, res) => {
   try {
-    const id = Number(req.params.id)
-    const pie = await db.getPieById(id)
-    res.json(pie)
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message)
-    } else {
-      console.error('unknown error when grabbing pet by id.')
-    }
-    res.status(500).json({
-      error: `Something went wrong when grabbing pet by id.`,
-    })
-  }
-})
-
-// GET /api/pies/shop
-pieRouter.get('/shop', async (req, res) => {
-  try {
-    // Call the database function to fetch pets by ownerId
+    console.log('in')
     const pies = await db.getPieShops()
 
     // Handle cases where no pies are found
@@ -53,6 +32,25 @@ pieRouter.get('/shop', async (req, res) => {
       console.error('unknown error')
     }
     res.status(500).json({ error: 'Failed to retrieve pies' })
+  }
+})
+// pieRouter.get('/shop/')
+
+// GET /api/v1/pies/:id/
+pieRouter.get('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const pie = await db.getPieById(id)
+    res.json(pie)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('unknown error when grabbing pet by id.')
+    }
+    res.status(500).json({
+      error: `Something went wrong when grabbing pet by id.`,
+    })
   }
 })
 

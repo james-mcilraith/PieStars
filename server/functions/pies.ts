@@ -1,5 +1,5 @@
 import db from '../db/connection'
-import { Pie, PieData } from '../../models/pies'
+// import { Pie, PieData } from '../../models/pies'
 
 export async function getPies() {
   try {
@@ -14,12 +14,13 @@ export async function getPieById(id: number) {
   return result
 }
 export async function getPieShops() {
-  const result = await db('BakeryAwards').select('bakery', 'address')
+  const result = await db('BakeryAwards').select('Bakery', 'Address')
   return result
 }
-export async function getPieShopById(bakery: string) {
-  const result = await db('BakeryAwards').select('bakery', bakery)
+export async function getPieShopByName(bakery: string) {
+  const result = await db('BakeryAwards').select('Bakery', bakery)
   return result
 }
+
 
 // export asynce function addRating(bakery:string){ }
