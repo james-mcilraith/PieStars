@@ -16,6 +16,7 @@ const App = () => {
           <Route path="/stores" element={<StoreList />} />
           <Route path="/pie/:id" element={<PieDetails />} />
           <Route path="/store/:id" element={<StoreInfo />} />
+          <Route path="/pie/flavor/:flavor" element={<PieDetails />} />
         </Route>
       </Routes>
     </Router>

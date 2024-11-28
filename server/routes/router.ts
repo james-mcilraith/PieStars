@@ -12,6 +12,7 @@ pieRouter.get('/', async (req, res) => {
     res.sendStatus(500)
   }
 })
+
 // GET /api/pies/shops
 pieRouter.get('/shops', async (req, res) => {
   try {
@@ -34,12 +35,26 @@ pieRouter.get('/shops', async (req, res) => {
     res.status(500).json({ error: 'Failed to retrieve pies' })
   }
 })
+
 pieRouter.get('/shops/:bakery', async (req, res) => {
   try {
     console.log('yes')
     const bakery = String(req.params.bakery)
     const shop = await db.getPieShopByName(bakery)
     res.json(shop)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    }
+  }
+})
+
+pieRouter.get('/flavor/:flavor', async (req, res) => {
+  try {
+    const flavor = req.params.flavor
+    const pie = await db.getPieByFlavor(flavor)
+    console.log('yes')
+    res.json(pie)
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message)

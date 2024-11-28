@@ -13,6 +13,10 @@ export async function getPieById(id: number) {
   const result = await db('BakeryAwards').where({ id }).first()
   return result
 }
+export async function getPieByFlavor(flavor:string){
+  const result = await db('BakeryAwards').where('flavor',flavor)
+  return result
+}
 export async function getPieShops() {
   const result = await db('BakeryAwards').select('Bakery', 'Address')
   return result

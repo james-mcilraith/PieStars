@@ -1,25 +1,37 @@
 // Displays the bestpie in the landing section
 import { Link } from 'react-router-dom'
+import { getPies } from '../../apis/api'
+import { useQuery } from '@tanstack/react-query'
 
 const BestPies = () => {
-  const pies = [
-    { id: 1, name: 'Mince Pie', img: '/images/pie-cartoon.jpg' },
-    { id: 2, name: 'Mince Cheese Pie', img: '/images/pie-cartoon.jpg' },
-    { id: 3, name: 'Bacon & Egg Pie', img: '/images/pie-cartoon.jpg' },
-  ]
+  const { data, isError, isPending } = useQuery({
+    queryKey: ['pies'],
+    queryFn: () => getPies(),
+  })
 
+  if (isPending) {
+    return <div>Loading pies...</div>
+  }
+
+  if (isError) {
+    return (
+      <div>There was an error loading the pies. Please try again later.</div>
+    )
+  }
+
+  
   return (
     <div>
       <h2>Our Best Pies</h2>
       <div className="best-pies">
-        {pies.map((pie) => (
-          <Link key={pie.id} to={`/pie/${pie.id}`}>
+        {data?.map((pie) => (
+          <Link key={pie.id} to={`/pie/flavor/${pie.flavor}`}>
             <img
-              src={pie.img}
-              alt={pie.name}
+              src={'/images/pie-cartoon.jpg'}
+              alt={pie.flavor}
               style={{ width: '200px', height: 'auto' }}
             />
-            <p>{pie.name}</p>
+            <p>{pie.flavor}</p>
           </Link>
         ))}
       </div>

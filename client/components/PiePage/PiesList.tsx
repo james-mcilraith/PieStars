@@ -26,20 +26,7 @@ const PiesList = () => {
       storeId: 3,
       storeName: 'The Best Baker',
     },
-    {
-      id: 4,
-      name: 'Steak & Mushroom Pie',
-      rating: 4.3,
-      storeId: 4,
-      storeName: 'Pie Palace',
-    },
-    {
-      id: 5,
-      name: 'Chicken Pie',
-      rating: 4.2,
-      storeId: 5,
-      storeName: 'The Crusty Baker',
-    },
+    
     // Change from hard coded.
   ]
 
