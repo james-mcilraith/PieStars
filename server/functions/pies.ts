@@ -18,9 +18,8 @@ export async function getPieShops() {
   return result
 }
 export async function getPieShopByName(bakery: string) {
-  const result = await db('BakeryAwards').select('Bakery', bakery)
+  const result = await db('BakeryAwards').where('Bakery', bakery)
   return result
 }
-
 
 // export asynce function addRating(bakery:string){ }
