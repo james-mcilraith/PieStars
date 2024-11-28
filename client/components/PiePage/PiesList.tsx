@@ -1,8 +1,10 @@
-// Displays leaderboard of top-rated pies
+// OPTIONAL
+// Displays a list of pies with the bakery location and perhaps images
+
 import { Link } from 'react-router-dom'
 
-const Leaderboard = () => {
-  const leaderboard = [
+const PiesList = () => {
+  const allPies = [
     {
       id: 1,
       name: 'Mince Pie',
@@ -24,11 +26,26 @@ const Leaderboard = () => {
       storeId: 3,
       storeName: 'The Best Baker',
     },
+    {
+      id: 4,
+      name: 'Steak & Mushroom Pie',
+      rating: 4.3,
+      storeId: 4,
+      storeName: 'Pie Palace',
+    },
+    {
+      id: 5,
+      name: 'Chicken Pie',
+      rating: 4.2,
+      storeId: 5,
+      storeName: 'The Crusty Baker',
+    },
+    // Change from hard coded.
   ]
 
   return (
     <div>
-      <h2>The Leaderboard</h2>
+      <h2>All Rated Pies</h2>
       <table className="leaderboard-table">
         <thead>
           <tr>
@@ -38,14 +55,14 @@ const Leaderboard = () => {
           </tr>
         </thead>
         <tbody>
-          {leaderboard.map((pie) => (
+          {allPies.map((pie) => (
             <tr key={pie.id}>
               <td>
-                <Link to={`/pie/${pie.id}`}>{pie.name}</Link>{' '}
+                <Link to={`/pie/${pie.id}`}>{pie.name}</Link>
               </td>
               <td>{pie.rating} stars</td>
               <td>
-                <Link to={`/store/${pie.storeId}`}>{pie.storeName}</Link>{' '}
+                <Link to={`/store/${pie.storeId}`}>{pie.storeName}</Link>
               </td>
             </tr>
           ))}
@@ -55,4 +72,4 @@ const Leaderboard = () => {
   )
 }
 
-export default Leaderboard
+export default PiesList
