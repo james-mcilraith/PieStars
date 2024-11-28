@@ -1,25 +1,36 @@
 // Form to rate a pie
 import { useState } from 'react'
 
-const RatingForm = ({ pieId }: { pieId: number }) => {
+const RatingForm = ({ onSubmit }) => {
   const [rating, setRating] = useState(0)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Handle when a star is clicked
+  const handleClick = (starRating) => {
+    setRating(starRating)
+  }
+
+  // Handle form submission
+  const handleSubmit = (e) => {
     e.preventDefault()
-    alert(`Pie ${pieId} rated ${rating} stars!`)
-    // Save rating to backend here
+    onSubmit(rating)
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>Rate this pie:</label>
-      <input
-        type="number"
-        min="1"
-        max="5"
-        value={rating}
-        onChange={(e) => setRating(Number(e.target.value))}
-      />
+      <div className="star-rating">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span
+            key={star}
+            onClick={() => handleClick(star)}
+            className={`star ${star <= rating ? 'filled' : ''}`}
+            role="button"
+            aria-label={`${star} stars`}
+          >
+            &#9733; {/* Unicode star symbol */}
+          </span>
+        ))}
+      </div>
       <button type="submit">Submit</button>
     </form>
   )

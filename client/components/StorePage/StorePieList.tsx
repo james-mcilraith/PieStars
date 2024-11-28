@@ -1,2 +1,2 @@
 // OPTIONAL
-// List of pies offered by the bakery
+// List of pies offered by each bakery
