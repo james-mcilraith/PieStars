@@ -1,11 +1,15 @@
-function App() {
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Layout from './Layout'
+
+const App = () => {
   return (
-    <>
-      <header className="header">
-        <h1>My Collection</h1>
-      </header>
-      <section className="main">{/* add your code here */}</section>
-    </>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<BestPie />} />{' '}
+        </Routes>
+      </Layout>
+    </Router>
   )
 }
 
