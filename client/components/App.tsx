@@ -8,9 +8,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Define the layout route with an outlet */}
         <Route path="/" element={<Layout />}>
-          {/* Define the nested routes that will be rendered inside Layout's Outlet */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/pie/:id" element={<PieDetails />} />
           <Route path="/store" element={<StoreInfo />} />
