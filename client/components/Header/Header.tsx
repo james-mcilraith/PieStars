@@ -2,17 +2,23 @@ import { Link } from 'react-router-dom'
 
 const Header: React.FC = () => {
   return (
-    <header>
-      <nav>
+    <header className="header">
+      <div className="logo">
+        <Link to="/">
+          <img
+            src="./images/pie-stars.png"
+            alt="Pie Stars Logo"
+            className="logo-img"
+          />
+        </Link>
+      </div>
+      <nav className="nav-links">
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/leaderboard">Leaderboard</Link>
-          </li>
-          <li>
-            <Link to="/stores">Stores</Link>
           </li>
         </ul>
       </nav>
