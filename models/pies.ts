@@ -1,5 +1,5 @@
 export interface PieData{
-  flavour: string
+  flavor: string
   place: string
   baker: string
   bakery:string

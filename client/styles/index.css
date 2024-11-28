@@ -147,6 +147,7 @@ main {
 
 /* Leaderboard Table Styling */
 .leaderboard-table {
+  display: block;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -161,6 +162,7 @@ main {
 }
 
 .leaderboard-table th {
+  
   background-color: #007bff;
   color: white;
   font-weight: bold;
