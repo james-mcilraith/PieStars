@@ -39,7 +39,7 @@ const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
           {leaderboard.map((pie) => (
             <tr key={pie.id}>
               <td>
-                <Link to={`/pie/${pie.id}`}>{pie.flavor}</Link>{' '}
+                <Link to={`/pies/${pie.id}`}>{pie.flavor}</Link>{' '}
               </td>
               <td>{pie.place} stars</td>
               <td>

@@ -33,7 +33,7 @@ const PieDetails = () => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <div style={{ flex: '1', marginTop: '10%' }}>
+      <div style={{ flex: '1', marginTop: '5%' }}>
         <Leaderboard pieflavor={flavor as string} />
       </div>
       <div style={{ flex: '2', paddingLeft: '2px' }}>
