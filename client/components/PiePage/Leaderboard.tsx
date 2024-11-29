@@ -1,31 +1,29 @@
 // Displays leaderboard of top-rated pies
 import { Link } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getPiesByFlavor } from '../../apis/api'
 
-const Leaderboard = () => {
-  const leaderboard = [
-    {
-      id: 1,
-      name: 'Mince Pie',
-      rating: 4.9,
-      storeId: 1,
-      storeName: 'The Big Baker',
-    },
-    {
-      id: 2,
-      name: 'Mince & Cheese Pie',
-      rating: 4.7,
-      storeId: 2,
-      storeName: 'The Average Baker',
-    },
-    {
-      id: 3,
-      name: 'Bacon & Egg Pie',
-      rating: 4.6,
-      storeId: 3,
-      storeName: 'The Best Baker',
-    },
-  ]
+const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
+  const {
+    data: leaderboard,
+    isError,
+    isPending,
+  } = useQuery({
+    queryKey: ['flavor'],
+    queryFn: () => getPiesByFlavor(pieflavor as string),
+  })
 
+  // Initializing the pie state with hardcoded data for simplicity
+  if (isPending) {
+    return <div>Loading pies...</div>
+  }
+
+  if (isError) {
+    return (
+      <div>There was an error loading the pies. Please try again later.</div>
+    )
+  }
+  console.log(leaderboard)
   return (
     <div>
       <h2>The Leaderboard</h2>
@@ -41,11 +39,11 @@ const Leaderboard = () => {
           {leaderboard.map((pie) => (
             <tr key={pie.id}>
               <td>
-                <Link to={`/pie/${pie.id}`}>{pie.name}</Link>{' '}
+                <Link to={`/pie/${pie.id}`}>{pie.flavor}</Link>{' '}
               </td>
-              <td>{pie.rating} stars</td>
+              <td>{pie.place} stars</td>
               <td>
-                <Link to={`/store/${pie.storeId}`}>{pie.storeName}</Link>{' '}
+                <Link to={`/store/${pie.bakery}`}>{pie.bakery}</Link>{' '}
               </td>
             </tr>
           ))}

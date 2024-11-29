@@ -18,18 +18,30 @@ const BestPies = () => {
       <div>There was an error loading the pies. Please try again later.</div>
     )
   }
+  const filteredPie = data.filter((pie) => pie.place == 'Gold Award')
 
-  
   return (
     <div>
       <h2>Our Best Pies</h2>
       <div className="best-pies">
-        {data?.map((pie) => (
-          <Link key={pie.id} to={`/pie/flavor/${pie.flavor}`}>
+        {filteredPie.map((pie) => (
+          <Link
+            key={pie.id}
+            to={`/pies/flavor/${pie.flavor}`}
+            className="link-hover"
+            style={{
+              border: `4px solid`,
+              borderColor: 'black',
+              borderRadius: '10px',
+            }}
+          >
             <img
               src={'/images/pie-cartoon.jpg'}
               alt={pie.flavor}
-              style={{ width: '200px', height: 'auto' }}
+              style={{
+                width: '300px',
+                height: 'auto',
+              }}
             />
             <p>{pie.flavor}</p>
           </Link>
