@@ -146,6 +146,13 @@ main {
 }
 
 /* Leaderboard Table Styling */
+.leaderboard-container {
+  height: 400px;
+  overflow-y: 100px;
+  border: 1px solid #007bff;
+  margin-top: 20px;
+}
+
 .leaderboard-table {
   display: block;
   width: 100%;
@@ -221,14 +228,10 @@ main {
   /* Scale up slightly on hover */
 }
 
-/* .best-pies img {
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
 .best-pies img:hover {
   transform: scale(1.1);
-} */
+}
+*/
 
 /* Star rating */
 .star-rating {

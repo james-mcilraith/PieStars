@@ -26,7 +26,7 @@ const PiesList = () => {
       storeId: 3,
       storeName: 'The Best Baker',
     },
-    
+
     // Change from hard coded.
   ]
 
@@ -45,7 +45,7 @@ const PiesList = () => {
           {allPies.map((pie) => (
             <tr key={pie.id}>
               <td>
-                <Link to={`/pie/${pie.id}`}>{pie.name}</Link>
+                <Link to={`/pies/${pie.id}`}>{pie.name}</Link>
               </td>
               <td>{pie.rating} stars</td>
               <td>

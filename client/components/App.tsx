@@ -5,6 +5,7 @@ import PieDetails from './PiePage/PieDetails'
 import StoreInfo from './StorePage/StoreInfo'
 import PiesList from './PiePage/PiesList'
 import StoreList from './StorePage/StoreList'
+import SinglePie from './PiePage/SinglePie'
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/pies/" element={<PiesList />} />
           <Route path="/stores" element={<StoreList />} />
-          <Route path="/pies/:id" element={<PieDetails />} />
+          <Route path="/pies/:id" element={<SinglePie />} />
           <Route path="/store/:id" element={<StoreInfo />} />
           <Route path="/pies/flavor/:flavor" element={<PieDetails />} />
         </Route>
