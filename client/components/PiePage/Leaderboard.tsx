@@ -13,7 +13,7 @@ const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
     queryFn: () => getPiesByFlavor(pieflavor as string),
   })
 
-  // Initializing the pie state with hardcoded data for simplicity
+  // Initialising the pie state with hardcoded data for simplicity
   if (isPending) {
     return <div>Loading pies...</div>
   }

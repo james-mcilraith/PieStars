@@ -1,103 +1,92 @@
 import * as db from '../../server/functions/pies.ts'
 import express from 'express'
 
-const pieRouter = express.Router()
+const router = express.Router()
 
 // GET /api/v1/pies
-pieRouter.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const pies = await db.getPies()
-    res.json(pies)
-  } catch (e) {
-    res.sendStatus(500)
-  }
-})
-
-// GET /api/pies/shops
-pieRouter.get('/shops', async (req, res) => {
-  try {
-    console.log('in')
-    const pies = await db.getPieShops()
-
-    // Handle cases where no pies are found
-    if (pies.length === 0) {
-      return res.status(404).json({ message: 'No pies found for this owner' })
-    }
-
-    // Return the list of pies
     res.status(200).json(pies)
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message)
-    } else {
-      console.error('unknown error')
-    }
-    res.status(500).json({ error: 'Failed to retrieve pies' })
+  } catch (e) {
+    console.error('Error fetching pies:', e)
+    res.status(500).json({ error: 'Failed to fetch pies' })
   }
 })
 
-pieRouter.get('/shops/:bakery', async (req, res) => {
-  try {
-    console.log('yes')
-    const bakery = String(req.params.bakery)
-    const shop = await db.getPieShopByName(bakery)
-    res.json(shop)
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message)
-    }
-  }
-})
-
-pieRouter.get('/flavor/:flavor', async (req, res) => {
-  try {
-    const flavor = req.params.flavor
-    const pie = await db.getPieByFlavor(flavor)
-    console.log('yes')
-    res.json(pie)
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message)
-    }
-  }
-})
-
-// GET /api/v1/pies/:id/
-pieRouter.get('/:id', async (req, res) => {
+// GET /api/v1/pies/:id
+router.get('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
     const pie = await db.getPieById(id)
-    res.json(pie)
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message)
-    } else {
-      console.error('unknown error when grabbing pet by id.')
+
+    if (!pie) {
+      return res.status(404).json({ message: `Pie with ID ${id} not found` })
     }
+
+    res.status(200).json(pie)
+  } catch (error) {
+    console.error('Error fetching pie by ID:', error)
     res.status(500).json({
-      error: `Something went wrong when grabbing pet by id.`,
+      error: `Failed to fetch pie with ID ${req.params.id}`,
     })
   }
 })
 
-// PATCH /api/v1/pie/
-// adding pie
-/*
-pieRouter.patch('/pie', async (req, res) => {
+// GET /api/v1/pies/stores
+router.get('/stores', async (req, res) => {
   try {
-    const { name, bio, imgUrl, ownerId } = req.body
-    const pet = await db.addRating(name, bio, imgUrl, ownerId)
+    const pies = await db.getPieStores()
 
-    res.status(201).json(pet[0])
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message)
-    } else {
-      console.error('unknown error while adding Pet')
+    if (pies.length === 0) {
+      return res.status(404).json({ message: 'No pie stores found' })
     }
-    res.status(500).json({ error: 'Failed to add Pet' })
+
+    res.status(200).json(pies)
+  } catch (error) {
+    console.error('Error fetching pie stores:', error)
+    res.status(500).json({ error: 'Failed to retrieve pie stores' })
   }
 })
-*/
 
-export default pieRouter
+// GET /api/v1/pies/stores/:bakery
+router.get('/stores/:bakery', async (req, res) => {
+  try {
+    const bakery = req.params.bakery
+    const store = await db.getPieStoreByName(bakery)
+
+    if (!store) {
+      return res
+        .status(404)
+        .json({ message: `Pie stores "${bakery}" not found` })
+    }
+
+    res.status(200).json(store)
+  } catch (error) {
+    console.error('Error fetching pie store by name:', error)
+    res.status(500).json({ error: 'Failed to fetch pie store by name' })
+  }
+})
+
+// GET /api/v1/pies/flavor/:flavor
+router.get('/flavor/:flavor', async (req, res) => {
+  try {
+    const flavor = req.params.flavor
+    const pies = await db.getPiesByFlavor(flavor)
+
+    if (pies.length === 0) {
+      return res
+        .status(404)
+        .json({ message: `No pies found for flavor: ${flavor}` })
+    }
+
+    res.status(200).json(pies)
+  } catch (error) {
+    console.error('Error fetching pies by flavor:', error)
+    res
+      .status(500)
+      .json({ error: `Failed to fetch pies for flavor: ${flavor}` })
+  }
+})
+
+export default router

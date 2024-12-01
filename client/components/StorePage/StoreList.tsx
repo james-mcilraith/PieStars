@@ -59,7 +59,7 @@ const StoreList = () => {
           {allStores.map((store) => (
             <tr key={store.id}>
               <td>
-                <Link to={`/store/${store.id}`}>{store.name}</Link>
+                <Link to={`/stores/${store.id}`}>{store.name}</Link>
               </td>
               <td>{store.location}</td>
               <td>{store.pieCount} pies</td>

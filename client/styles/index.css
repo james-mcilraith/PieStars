@@ -1,8 +1,6 @@
-/* Basic CSS */
+html,
 body {
-  position: relative;
-  top: 0;
-  left: 0;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font:
@@ -12,22 +10,32 @@ body {
     sans-serif;
   background-color: #fff;
   color: #333;
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 /* Header */
 header {
   background-color: #ffcc00;
-  padding: 0.5rem 1.5rem;
+  padding: 1.5rem;
   position: sticky;
   top: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 1.2rem;
-  flex-wrap: wrap;
+  font-size: 1.5rem;
+  width: 100%;
 }
 
 header .logo {
@@ -40,19 +48,16 @@ header .logo-img {
   width: auto;
 }
 
-/* Title Styling */
 .page-title {
   font-size: 3rem;
   margin-left: 20px;
   text-align: left;
-  flex: 0 1 auto;
 }
 
-/* Navigation Links */
 header .nav-links {
   display: flex;
   gap: 15px;
-  flex: 1;
+  flex-grow: 1;
   justify-content: flex-end;
   margin-left: auto;
   margin-right: 15px;
@@ -66,7 +71,6 @@ nav ul {
   margin: 0;
 }
 
-/* Auth Buttons */
 header .auth-buttons {
   display: flex;
   gap: 15px;
@@ -94,7 +98,7 @@ a:hover {
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.5rem;
   border-radius: 4px;
   transition:
     background-color 0.3s ease,
@@ -122,7 +126,7 @@ a:hover {
 /* Footer Styling */
 footer {
   background-color: #ffcc00;
-  /* padding: 2rem; */
+  padding: 2rem;
   text-align: center;
   width: 100%;
   font-size: 1.1rem;
@@ -158,6 +162,7 @@ main {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 1rem;
 }
 
@@ -197,41 +202,63 @@ main {
 }
 
 /* Best Pies */
-.best-pies {
+.best-pies-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.best-pies-flexbox {
   display: flex;
-  flex-direction: right;
-  gap: 10px;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.best-pies .pie-link {
-  text-decoration: none;
-  color: inherit;
+.pie-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
   text-align: center;
-}
-.best-pies .link-hover {
-  display: inline-block;
-  /* Ensure the link behaves like a block for scaling */
-  border: 2px solid black;
-  /* Define the border here */
-  border-radius: 10px;
-  /* Rounded edges */
-  overflow: hidden;
-  /* Ensure the content fits within the border */
-  transition: transform 0.3s ease;
-  /* Smooth transition for the hover effect */
+  transition: transform 0.3s ease-in-out;
 }
 
-.best-pies .link-hover:hover {
+.pie-card:hover {
   transform: scale(1.05);
-  /* Scale up slightly on hover */
 }
 
-.best-pies img:hover {
-  transform: scale(1.1);
+.pie-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
 }
-*/
+
+.pie-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.pie-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.pie-card .award {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.pie-card-link {
+  display: block;
+}
+
+.pie-image {
+  cursor: pointer;
+}
 
 /* Star rating */
 .star-rating {
@@ -254,6 +281,14 @@ main {
 
 .star:hover {
   color: #ffcc00;
+}
+
+.rating-label {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 50px;
+  margin-bottom: 10px;
 }
 
 /* Responsive Design */
@@ -290,5 +325,10 @@ main {
   .leaderboard-table th,
   .leaderboard-table td {
     padding: 10px 12px;
+  }
+
+  .best-pies-flexbox {
+    flex-direction: column;
+    align-items: center;
   }
 }

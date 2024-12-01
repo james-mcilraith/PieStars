@@ -1,34 +1,34 @@
 // OPTIONAL
 // Displays a list of pies with the bakery location and perhaps images
 
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getPies } from '../../apis/api'
+import { Pie } from '../../../models/pies'
 
 const PiesList = () => {
-  const allPies = [
-    {
-      id: 1,
-      name: 'Mince Pie',
-      rating: 4.9,
-      storeId: 1,
-      storeName: 'The Big Baker',
-    },
-    {
-      id: 2,
-      name: 'Mince & Cheese Pie',
-      rating: 4.7,
-      storeId: 2,
-      storeName: 'The Average Baker',
-    },
-    {
-      id: 3,
-      name: 'Bacon & Egg Pie',
-      rating: 4.6,
-      storeId: 3,
-      storeName: 'The Best Baker',
-    },
+  const [pies, setPies] = useState<Pie[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-    // Change from hard coded.
-  ]
+  useEffect(() => {
+    const fetchPies = async () => {
+      try {
+        const pieData = await getPies()
+        setPies(pieData)
+      } catch (err) {
+        setError('Failed to fetch pies')
+        console.error('Error fetching pies:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPies()
+  }, [])
+
+  if (loading) return <div>Loading pies...</div>
+  if (error) return <div>{error}</div>
 
   return (
     <div>
@@ -36,21 +36,25 @@ const PiesList = () => {
       <table className="leaderboard-table">
         <thead>
           <tr>
-            <th>Pie Name</th>
-            <th>Rating</th>
-            <th>Store</th>
+            <th>Flavor</th>
+            <th>Place</th>
+            <th>Baker</th>
+            <th>Bakery</th>
+            <th>Address</th>
           </tr>
         </thead>
         <tbody>
-          {allPies.map((pie) => (
+          {pies.map((pie) => (
             <tr key={pie.id}>
               <td>
-                <Link to={`/pies/${pie.id}`}>{pie.name}</Link>
+                <Link to={`/pies/${pie.id}`}>{pie.flavor}</Link>{' '}
               </td>
-              <td>{pie.rating} stars</td>
+              <td>{pie.place}</td>
+              <td>{pie.baker}</td>
               <td>
-                <Link to={`/store/${pie.storeId}`}>{pie.storeName}</Link>
+                <Link to={`/stores/${pie.bakery}`}>{pie.bakery}</Link>{' '}
               </td>
+              <td>{pie.address}</td>
             </tr>
           ))}
         </tbody>

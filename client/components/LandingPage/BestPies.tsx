@@ -1,15 +1,16 @@
-// Displays the bestpie in the landing section
 import { Link } from 'react-router-dom'
 import { getPies } from '../../apis/api'
 import { useQuery } from '@tanstack/react-query'
 
 const BestPies = () => {
-  const { data, isError, isPending } = useQuery({
+  const { data, isError, isLoading } = useQuery({
     queryKey: ['pies'],
-    queryFn: () => getPies(),
+    queryFn: getPies,
   })
 
-  if (isPending) {
+  console.log('API Data:', data)
+
+  if (isLoading) {
     return <div>Loading pies...</div>
   }
 
@@ -18,34 +19,39 @@ const BestPies = () => {
       <div>There was an error loading the pies. Please try again later.</div>
     )
   }
-  const filteredPie = data.filter((pie) => pie.place == 'Gold Award')
+
+  if (!data) {
+    return <div>No data available</div>
+  }
+
+  const filteredPies = data.filter((pie) => {
+    console.log('Pie place:', pie.place)
+    return pie.place === 'Gold Award'
+  })
+  console.log('Filtered Pies:', filteredPies)
 
   return (
-    <div>
-      <h2>Our Best Pies</h2>
-      <div className="best-pies">
-        {filteredPie.map((pie) => (
-          <Link
-            key={pie.id}
-            to={`/pies/flavor/${pie.flavor}`}
-            className="link-hover"
-            style={{
-              border: `4px solid`,
-              borderColor: 'black',
-              borderRadius: '10px',
-            }}
-          >
-            <img
-              src={'/images/pie-cartoon.jpg'}
-              alt={pie.flavor}
-              style={{
-                width: '300px',
-                height: 'auto',
-              }}
-            />
-            <p>{pie.flavor}</p>
-          </Link>
-        ))}
+    <div className="best-pies-container">
+      <h2>Our Best Gold Award Pies</h2>
+      <div className="best-pies-flexbox">
+        {filteredPies.length === 0 ? (
+          <p>No Gold Award pies found.</p>
+        ) : (
+          filteredPies.map((pie) => (
+            <div className="pie-card" key={pie.id}>
+              <Link to={`/pies/${pie.id}`} className="pie-card-link">
+                <h3>{pie.flavor}</h3>
+                <img
+                  src={pie.img || '/images/pie-cartoon.jpg'}
+                  alt={pie.flavor}
+                  className="pie-image"
+                />
+                <p>{pie.place} Award</p>
+                <p>{pie.bakery}</p>
+              </Link>
+            </div>
+          ))
+        )}
       </div>
     </div>
   )
