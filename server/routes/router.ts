@@ -33,36 +33,38 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-// GET /api/v1/pies/shops
-router.get('/shops', async (req, res) => {
+// GET /api/v1/pies/stores
+router.get('/stores', async (req, res) => {
   try {
-    const pies = await db.getPieShops()
+    const pies = await db.getPieStores()
 
     if (pies.length === 0) {
-      return res.status(404).json({ message: 'No pie shops found' })
+      return res.status(404).json({ message: 'No pie stores found' })
     }
 
     res.status(200).json(pies)
   } catch (error) {
-    console.error('Error fetching pie shops:', error)
-    res.status(500).json({ error: 'Failed to retrieve pie shops' })
+    console.error('Error fetching pie stores:', error)
+    res.status(500).json({ error: 'Failed to retrieve pie stores' })
   }
 })
 
-// GET /api/v1/pies/shops/:bakery
-router.get('/shops/:bakery', async (req, res) => {
+// GET /api/v1/pies/stores/:bakery
+router.get('/stores/:bakery', async (req, res) => {
   try {
     const bakery = req.params.bakery
-    const shop = await db.getPieShopByName(bakery)
+    const store = await db.getPieStoreByName(bakery)
 
-    if (!shop) {
-      return res.status(404).json({ message: `Pie shop "${bakery}" not found` })
+    if (!store) {
+      return res
+        .status(404)
+        .json({ message: `Pie stores "${bakery}" not found` })
     }
 
-    res.status(200).json(shop)
+    res.status(200).json(store)
   } catch (error) {
-    console.error('Error fetching pie shop by name:', error)
-    res.status(500).json({ error: 'Failed to fetch pie shop by name' })
+    console.error('Error fetching pie store by name:', error)
+    res.status(500).json({ error: 'Failed to fetch pie store by name' })
   }
 })
 
