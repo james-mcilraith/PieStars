@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated.tsx'
 
-const Header: React.FC = () => {
+function Header() {
+  const { logout, loginWithRedirect, user } = useAuth0()
+
+  const handleSignOut = () => {
+    logout()
+    console.log('sign out')
+  }
+  console.log(user?.given_name)
+
+  const handleSignIn = () => {
+    loginWithRedirect()
+    console.log('sign in')
+  }
   return (
     <header className="header">
       <div className="logo">
@@ -29,9 +43,19 @@ const Header: React.FC = () => {
       </nav>
 
       <div className="auth-buttons">
-        <button className="login-button">
-          <Link to="/login">Login</Link>
-        </button>
+        <IfNotAuthenticated>
+          <button className="login-button" onClick={handleSignIn}>
+            <Link to="/login">Login</Link>
+          </button>
+        </IfNotAuthenticated>
+        <IfAuthenticated>
+          <button className="login-button" onClick={handleSignOut}>
+            <Link to="/login">Logout </Link>
+          </button>
+          <button className="user-profile">
+            <Link to="/User"> {user?.name}</Link>
+          </button>
+        </IfAuthenticated>
       </div>
     </header>
   )

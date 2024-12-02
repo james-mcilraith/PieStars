@@ -5,6 +5,10 @@ import StoreInfo from './StorePage/StoreInfo'
 import PiesList from './PiePage/PiesList'
 import StoreList from './StorePage/StoreList'
 import OnePie from './PiePage/OnePie'
+import Leaderboard from './PiePage/Leaderboard'
+import LeaderboardFlavor from './LandingPage/LeaderboardFlavor'
+import PieLeaderboard from './LandingPage/PieLeaderboard'
+import User from './LandingPage/User'
 
 const App = () => {
   return (
@@ -13,6 +17,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<BestPies />} />
           <Route path="/pies/" element={<PiesList />} />
+          <Route path="/user/" element={<User />} />
           <Route path="/stores" element={<StoreList />} />
           <Route path="/pies/:id" element={<OnePie />} />
           <Route path="/stores/:id" element={<StoreInfo />} />
