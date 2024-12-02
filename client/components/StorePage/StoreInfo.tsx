@@ -1,36 +1,44 @@
 // Bakery description, any history, and details
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { getStoreByBakery } from '../../apis/api'
+import { useQuery } from '@tanstack/react-query'
 
 const StoreInfo = () => {
   const { id } = useParams()
 
   // Initialising the store state with hardcoded data for simplicity
-  const [store] = useState({
-    id: Number(id),
-    name: 'The Big Baker',
-    description: 'A family-owned bakery specialising in delicious pies.',
-    location: '123 Baker St, Wellyville',
-    rating: 4.7,
-    img: '/images/store-image.jpg', // Example store image
+  const {
+    data: store,
+    isError,
+    isLoading,
+  } = useQuery({
+    queryKey: ['stores'],
+    queryFn: () => getStoreByBakery(String(id)),
   })
+  if (isLoading) {
+    return <div>Loading stores...</div>
+  }
 
+  if (isError) {
+    return (
+      <div>There was an error loading the stores. Please try again later.</div>
+    )
+  }
   return (
     <div className="store-info">
       <img
-        src={store.img}
-        alt={store.name}
+        src={'/images/store-image.jpg'}
+        alt={store?.bakery}
         style={{ width: '400px', height: 'auto', borderRadius: '8px' }}
       />
 
-      <h2>{store.name}</h2>
-      <p>{store.description}</p>
+      <h2>{store?.bakery}</h2>
+      {/* <p>{store.description}</p> */}
       <p>
-        <strong>Location:</strong> {store.location}
+        <strong>Location:</strong> {store?.address}
       </p>
-      <p>
-        <strong>Current Rating:</strong> {store.rating} stars
-      </p>
+      <p>{/* <strong>Current Rating:</strong> {store.rating} stars */}</p>
     </div>
   )
 }
