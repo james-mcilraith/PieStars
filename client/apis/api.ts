@@ -14,7 +14,28 @@ export async function getPies(): Promise<Pie[]> {
     throw new Error('Failed to fetch pies')
   }
 }
-
+interface Store {
+  bakery: string
+  address: string
+}
+export async function getStores(): Promise<Store[]> {
+  try {
+    const result = await request.get(`${baseUrl}/stores`)
+    return result.body as Store[]
+  } catch (error) {
+    console.error('Error fetching stores:', error)
+    throw new Error('Failed to fetch stores')
+  }
+}
+export async function getStoreByBakery(name: string): Promise<Store> {
+  try {
+    const result = await request.get(`${baseUrl}/stores/${name}`)
+    return result.body
+  } catch (error) {
+    console.error('Error fetching stores', error)
+    throw new Error('Failed to one stores')
+  }
+}
 // Fetch pie by ID
 export async function getPieById(id: number) {
   try {

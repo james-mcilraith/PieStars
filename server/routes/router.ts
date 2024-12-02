@@ -13,6 +13,21 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch pies' })
   }
 })
+// GET /api/v1/pies/stores
+router.get('/stores', async (req, res) => {
+  try {
+    const pies = await db.getPieStores()
+
+    if (pies.length === 0) {
+      return res.status(404).json({ message: 'No pie stores found' })
+    }
+
+    res.status(200).json(pies)
+  } catch (error) {
+    console.error('Error fetching pie stores:', error)
+    res.status(500).json({ error: 'Failed to retrieve pie stores' })
+  }
+})
 
 // GET /api/v1/pies/:id
 router.get('/:id', async (req, res) => {
@@ -30,22 +45,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({
       error: `Failed to fetch pie with ID ${req.params.id}`,
     })
-  }
-})
-
-// GET /api/v1/pies/stores
-router.get('/stores', async (req, res) => {
-  try {
-    const pies = await db.getPieStores()
-
-    if (pies.length === 0) {
-      return res.status(404).json({ message: 'No pie stores found' })
-    }
-
-    res.status(200).json(pies)
-  } catch (error) {
-    console.error('Error fetching pie stores:', error)
-    res.status(500).json({ error: 'Failed to retrieve pie stores' })
   }
 })
 
