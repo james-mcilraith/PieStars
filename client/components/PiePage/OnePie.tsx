@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getPieById } from '../../apis/api'
 import { PieData } from '../../../models/pies'
 import RatingForm from './RatingForm'
+import { IfAuthenticated } from '../Authenticated'
 
 const OnePie = () => {
   const { id } = useParams<{ id: string }>()
@@ -14,7 +15,7 @@ const OnePie = () => {
   useEffect(() => {
     const fetchPie = async () => {
       try {
-        const pieData = await getPieById(id)
+        const pieData = await getPieById(Number(id))
         setPie(pieData)
       } catch (error) {
         setIsError(true)
@@ -56,7 +57,9 @@ const OnePie = () => {
         <p>{pie.place}</p>
         <p>{pie.bakery}</p>
         <p>{pie.address}</p>
-        <RatingForm PieId={id} />
+        <IfAuthenticated>
+          <RatingForm PieId={id} />
+        </IfAuthenticated>
       </div>
     </div>
   )

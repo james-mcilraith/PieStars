@@ -16,7 +16,7 @@ export async function getPies(): Promise<Pie[]> {
 }
 
 // Fetch pie by ID
-export async function getPieById(id: string) {
+export async function getPieById(id: number) {
   try {
     const response = await fetch(`${baseUrl}/${id}`)
     if (!response.ok) {
