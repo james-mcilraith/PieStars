@@ -29,6 +29,17 @@ router.get('/stores', async (req, res) => {
   }
 })
 
+//Get /api/v1/User/:user
+router.get('/User/:user', async (req, res) => {
+  try {
+    const user = String(req.params.user)
+    const userData = await db.getUserData(user)
+    res.json(userData)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 // GET /api/v1/pies/:id
 router.get('/:id', async (req, res) => {
   try {

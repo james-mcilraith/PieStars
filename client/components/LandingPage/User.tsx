@@ -1,22 +1,26 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import { useState } from 'react'
 
 function User() {
-  const [user] = useState({
+  const [users] = useState({
     name: 'Thomas',
     favourite: 'Bacon and Egg',
     favourite_place: 'Eurobake Espresso Ltd',
   })
+  const { isAuthenticated, user } = useAuth0()
+
   return (
     <div>
-      <h2>{user.name}&apos;s Profile</h2>
+      <h2>{isAuthenticated ? user?.name : 'people'}&apos;s Profile</h2>
+      {/* <h1>Hi {isAuthenticated ? user?.name : 'people'}</h1> */}
       <p>
         {' '}
         <strong>Favourite Pie: {''}</strong>
-        {user.favourite}
+        {users.favourite}
       </p>
       <p>
         <strong>Favourite Bakery: {''}</strong>
-        {user.favourite_place}
+        {users.favourite_place}
       </p>
       <img
         src={'/images/pie-cartoon.jpg'}

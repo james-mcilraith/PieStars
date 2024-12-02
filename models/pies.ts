@@ -10,3 +10,8 @@ export interface PieData {
 export interface Pie extends PieData {
   id: number
 }
+export interface User {
+  auth0_id: string
+  rating: number[]
+  favourite_pie: string
+}
