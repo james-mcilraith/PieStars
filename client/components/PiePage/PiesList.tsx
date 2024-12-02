@@ -31,8 +31,10 @@ const PiesList = () => {
   if (error) return <div>{error}</div>
 
   return (
-    <div>
+    <div> 
       <h2>All Rated Pies</h2>
+      <div className="leaderboard-container">
+
       <table className="leaderboard-table">
         <thead>
           <tr>
@@ -59,6 +61,7 @@ const PiesList = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }

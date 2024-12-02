@@ -1,5 +1,10 @@
-html,
+html {
+  height:auto;
+  width:auto;
+  margin:0; 
+}
 body {
+  display:block;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,9 +13,10 @@ body {
     Helvetica,
     Arial,
     sans-serif;
-  background-color: #fff;
+  background-color: #bababa;
   color: #333;
-  min-height: 100vh;
+  /* max-width: 100%;   */
+  /* height: auto; */
 }
 
 *,
@@ -19,10 +25,31 @@ body {
   box-sizing: inherit;
 }
 
-body {
+/* Main Content Styling */
+main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 73.1vh; */
+  height:100%;
+  text-align: center;
+  padding-bottom:75px;
 }
+
+.layout{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position:relative;
+  min-height:100vh;
+  background-color: #ffffffe9;
+}
+
+/* body {
+  display: block;
+  flex-direction: column;
+} */
 
 /* Header */
 header {
@@ -36,6 +63,7 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 1.5rem;
   width: 100%;
+  max-height: 130px;
 }
 
 header .logo {
@@ -125,11 +153,14 @@ a:hover {
 
 /* Footer Styling */
 footer {
+  position:absolute;
+  bottom:0;
   background-color: #ffcc00;
   padding: 2rem;
   text-align: center;
   width: 100%;
   font-size: 1.1rem;
+  height:75px;
 }
 
 footer p {
@@ -138,21 +169,12 @@ footer p {
   color: #0c0b0b;
 }
 
-/* Main Content Styling */
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  min-height: 80vh;
-  text-align: center;
-}
+
 
 /* Leaderboard Table Styling */
 .leaderboard-container {
   height: 400px;
-  overflow-y: 100px;
+  overflow-y: scroll;
   border: 1px solid #007bff;
   margin-top: 20px;
 }
@@ -203,19 +225,25 @@ main {
 
 /* Best Pies */
 .best-pies-container {
+  display:flex;
+  align-items:center;
+  flex-direction:column;
   text-align: center;
-  margin: 20px;
+  margin: auto 0;
+  margin-top:center;
+  /* margin-top: -120px; */
+  /* margin-bottom: auto; */
 }
 
 .best-pies-flexbox {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
   flex-wrap: wrap;
 }
 
 .pie-card {
-  background-color: #f9f9f9;
+  background-color: #d9c7c7;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -226,6 +254,10 @@ main {
 
 .pie-card:hover {
   transform: scale(1.05);
+  background-color: #00000068;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pie-card h3 {
