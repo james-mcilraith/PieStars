@@ -1,5 +1,4 @@
 // Layout component to manage the layout across all pages
-import OnePie from './OnePie'
 import Leaderboard from './Leaderboard'
 import { Outlet } from 'react-router-dom'
 
