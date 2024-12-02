@@ -67,7 +67,8 @@ export async function getPiesByFlavor(flavor: string): Promise<Pie[]> {
 }
 export async function getUserData(user: string): Promise<User> {
   try {
-    const result = await db('User').where('auth_0id', user).first()
+    console.log('yes')
+    const result = await db('User').where('auth0_id', user).first()
     return result
   } catch (error) {
     console.error(`Error fetching user`, error)

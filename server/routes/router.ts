@@ -28,6 +28,8 @@ router.get('/stores', async (req, res) => {
     res.status(500).json({ error: 'Failed to retrieve pie stores' })
   }
 })
+
+//Get /api/v1/User/:user
 router.get('/User/:user', async (req, res) => {
   try {
     const user = String(req.params.user)
@@ -37,6 +39,7 @@ router.get('/User/:user', async (req, res) => {
     console.log(error)
   }
 })
+
 // GET /api/v1/pies/:id
 router.get('/:id', async (req, res) => {
   try {
