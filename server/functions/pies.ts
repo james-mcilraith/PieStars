@@ -1,5 +1,5 @@
 import db from '../db/connection'
-import { Pie } from '../../models/pies'
+import { Pie, User } from '../../models/pies'
 
 // Fetch all pies
 export async function getPies(): Promise<Pie[]> {
@@ -63,6 +63,15 @@ export async function getPiesByFlavor(flavor: string): Promise<Pie[]> {
   } catch (error) {
     console.error(`Error fetching pies by flavor ${flavor}:`, error)
     throw new Error(`Failed to fetch pies by flavor ${flavor}`)
+  }
+}
+export async function getUserData(user: string): Promise<User> {
+  try {
+    const result = await db('User').where('auth_0id', user).first()
+    return result
+  } catch (error) {
+    console.error(`Error fetching user`, error)
+    throw new Error(`Failed to fetch user`)
   }
 }
 
