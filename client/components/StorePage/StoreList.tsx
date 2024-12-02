@@ -23,32 +23,34 @@ const StoreList = () => {
   return (
     <div>
       <h2>All Rated Stores</h2>
-      <table className="leaderboard-table">
-        <thead>
-          <tr>
-            <th>Store Name</th>
-            <th>Location</th>
-            {/* <th>Pies Rated</th> */}
-            {/* <th>Average Rating</th> */}
-          </tr>
-        </thead>
-        <tbody>
-          {stores?.length ? (
-            stores.map((store, index) => (
-              <tr key={index}>
-                <td>
-                  <Link to={`/stores/${store.bakery}`}>{store.bakery}</Link>
-                </td>
-                <td>{store.address}</td>
-              </tr>
-            ))
-          ) : (
+      <div className="leaderboard-container">
+        <table className="leaderboard-table">
+          <thead>
             <tr>
-              <td colSpan={2}>No stores available</td>
+              <th>Store Name</th>
+              <th>Location</th>
+              {/* <th>Pies Rated</th> */}
+              {/* <th>Average Rating</th> */}
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {stores?.length ? (
+              stores.map((store, index) => (
+                <tr key={index}>
+                  <td>
+                    <Link to={`/stores/${store.bakery}`}>{store.bakery}</Link>
+                  </td>
+                  <td>{store.address}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={2}>No stores available</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

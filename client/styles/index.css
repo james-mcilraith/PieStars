@@ -175,8 +175,6 @@ footer p {
 .leaderboard-container {
   height: 400px;
   overflow-y: scroll;
-  border: 1px solid #007bff;
-  margin-top: 20px;
 }
 
 .leaderboard-table {
