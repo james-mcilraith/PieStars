@@ -8,8 +8,6 @@ const BestPies = () => {
     queryFn: getPies,
   })
 
-  console.log('API Data:', data)
-
   if (isLoading) {
     return <div>Loading pies...</div>
   }
@@ -39,7 +37,7 @@ const BestPies = () => {
         ) : (
           filteredPies.map((pie) => (
             <div className="pie-card" key={pie.id}>
-              <Link to={`/pies/${pie.id}`} className="pie-card-link">
+              <Link to={`/flavor/${pie.flavor}`} className="pie-card-link">
                 <h3>{pie.flavor}</h3>
                 <img
                   src={pie.img || '/images/pie-cartoon.jpg'}
