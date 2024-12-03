@@ -51,7 +51,7 @@ const OnePie = () => {
         <img
           src={pie.img || '/images/pie-cartoon-image.jpeg'}
           alt={pie.flavor}
-          style={{ width: '400px', height: 'auto' }}
+          style={{ width: '300px', height: 'auto' }}
         />
         <h2>{pie.flavor}</h2>
         <p>{pie.place}</p>
