@@ -40,7 +40,7 @@ const BestPies = () => {
               <Link to={`/flavor/${pie.flavor}`} className="pie-card-link">
                 <h3>{pie.flavor}</h3>
                 <img
-                  src={pie.img || '/images/pie-cartoon.jpg'}
+                  src={pie.img || '/images/pie-cartoon-image.jpeg'}
                   alt={pie.flavor}
                   className="pie-image"
                 />
