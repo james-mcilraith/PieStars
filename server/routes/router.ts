@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch pies' })
   }
 })
+
 // GET /api/v1/pies/stores
 router.get('/stores', async (req, res) => {
   try {
@@ -29,7 +30,20 @@ router.get('/stores', async (req, res) => {
   }
 })
 
-//Get /api/v1/User/:user
+// Patch /api/v1/
+router.patch('/User/:user', async (req, res) => {
+  try {
+    const user = String(req.params.user)
+    const { rating, pieId } = req.body
+    console.log(req.body)
+    await db.addRating(user, pieId, rating)
+    return res.status(200).json({ message: 'User data updated successfully' })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//Get /api/v1/User/:user or /:flavor/:id/:user
 router.get('/User/:user', async (req, res) => {
   try {
     const user = String(req.params.user)
@@ -93,9 +107,7 @@ router.get('/flavor/:flavor', async (req, res) => {
     res.status(200).json(pies)
   } catch (error) {
     console.error('Error fetching pies by flavor:', error)
-    res
-      .status(500)
-      .json({ error: `Failed to fetch pies for flavor: ${flavor}` })
+    res.status(500).json({ error: `Failed to fetch pies for flavor` })
   }
 })
 

@@ -65,10 +65,13 @@ export async function getPiesByFlavor(flavor: string): Promise<Pie[]> {
     throw new Error(`Failed to fetch pies by flavor ${flavor}`)
   }
 }
-export async function getUserData(user: string): Promise<User> {
+
+// Gets all User Rating Data
+export async function getUserData(user: string): Promise<User[]> {
   try {
-    console.log('yes')
-    const result = await db('User').where('auth0_id', user).first()
+    const result = await db('userratings')
+      .join('BakeryAwards', 'userratings.pieId', '=', 'BakeryAwards.id')
+      .where('userratings.auth0_id', user)
     return result
   } catch (error) {
     console.error(`Error fetching user`, error)
@@ -76,16 +79,29 @@ export async function getUserData(user: string): Promise<User> {
   }
 }
 
-// export async function addRating(bakery: string, rating: number): Promise<void> {
-//   try {
-//     // Assuming you have a "Ratings" table or a "Ratings" field in your "BakeryAwards" table
-//     await db('BakeryAwards')
-//       .where('Bakery', bakery)
-//       .update({ rating }); // Update the rating for the given bakery
+// Adds a new rating to the database
+export async function addRating(
+  user: string,
+  pieId: number,
+  rating: number,
+): Promise<void> {
+  try {
+    const existingRating = await db('userratings')
+      .where('auth0_id', user)
+      .andWhere('pieId', pieId)
+      .first()
 
-//     console.log(`Rating for bakery ${bakery} updated to ${rating}`);
-//   } catch (error) {
-//     console.error(`Error adding rating for bakery ${bakery}:`, error);
-//     throw new Error('Failed to add rating');
-//   }
-// }
+    if (existingRating) {
+      await db('userratings')
+        .where({ auth0_id: user, pieId })
+        .update({ rating })
+      console.log(`Rating updated for pie ${pieId} by user ${user}`)
+    } else {
+      await db('userratings').insert({ auth0_id: user, pieId, rating })
+      console.log(`Rating added for pie ${pieId} by user ${user}`)
+    }
+  } catch (error) {
+    console.error('Error adding/updating rating:', error)
+    throw new Error('Failed to add/update rating')
+  }
+}
