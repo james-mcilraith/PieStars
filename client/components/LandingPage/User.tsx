@@ -31,7 +31,7 @@ function User() {
       <h2>{isAuthenticated ? user?.name : 'people'}&apos;s Profile</h2>
       {/* <h1>Hi {isAuthenticated ? user?.name : 'people'}</h1> */}
       <img
-        src={'/images/pie-cartoon.jpg'}
+        src={'/images/pie-cartoon-image.jpeg'}
         alt={'pie'}
         style={{ width: '200px', height: 'auto' }}
       />

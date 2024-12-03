@@ -49,7 +49,7 @@ const OnePie = () => {
       <div style={{ flex: '1', marginTop: '10%' }}></div>
       <div style={{ flex: '2', paddingLeft: '0px' }}>
         <img
-          src={pie.img || '/images/pie-cartoon.jpg'}
+          src={pie.img || '/images/pie-cartoon-image.jpeg'}
           alt={pie.flavor}
           style={{ width: '400px', height: 'auto' }}
         />

@@ -79,7 +79,7 @@ export async function getPieByFlavor(flavor: string): Promise<Pie | null> {
       // Return the first pie, with a fallback image if not present
       return {
         ...result.body[0],
-        img: result.body[0].img || '/images/pie-cartoon.jpg', // Default image if none exists
+        img: result.body[0].img || '/images/pie-cartoon-image.jpeg', // Default image if none exists
       }
     } else {
       return null // No pie found for this flavor
