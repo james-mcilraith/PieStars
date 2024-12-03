@@ -1,6 +1,6 @@
 // API utility to handle API endpoints and requests
 import request from 'superagent'
-import { Pie } from '../../models/pies'
+import { Pie, User } from '../../models/pies'
 
 const baseUrl = '/api/v1/pies'
 
@@ -90,4 +90,23 @@ export async function getPieByFlavor(flavor: string): Promise<Pie | null> {
   }
 }
 
-
+export async function addRating(rating: User) {
+  try {
+    const result = await request
+      .patch(`${baseUrl}/User/${rating.auth0_id}`)
+      .send(rating)
+    return result.body
+  } catch (error) {
+    console.error(`Error adding rating`, error)
+    throw new Error(`Failed to add rating`)
+  }
+}
+export async function getData(userId: string) {
+  try {
+    const result = await request.get(`${baseUrl}/User/${userId}`)
+    return result.body
+  } catch (error) {
+    console.error(`Error adding rating`, error)
+    throw new Error(`Failed to add rating`)
+  }
+}

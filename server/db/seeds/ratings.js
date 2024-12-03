@@ -1,13 +1,14 @@
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
-exports.seed = async function(knex) {
-  // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
-  ]);
-};
+export const seed = async function (knex) {
+  await knex('userratings').delete()
+  await knex('userratings').insert([
+    {
+      auth0_id: 'auth0|1234567890',
+      pieId: 1,
+      rating: 4,
+    },
+  ])
+}

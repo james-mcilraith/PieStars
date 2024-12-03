@@ -58,7 +58,7 @@ const OnePie = () => {
         <p>{pie.bakery}</p>
         <p>{pie.address}</p>
         <IfAuthenticated>
-          <RatingForm PieId={id} />
+          <RatingForm pieId={id as string} />
         </IfAuthenticated>
       </div>
     </div>
