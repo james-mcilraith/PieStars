@@ -23,7 +23,7 @@ function User() {
         {users.favourite_place}
       </p>
       <img
-        src={'/images/pie-cartoon.jpg'}
+        src={'/images/pie-cartoon-image.jpeg'}
         alt={'pie'}
         style={{ width: '400px', height: 'auto' }}
       />

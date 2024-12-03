@@ -28,7 +28,7 @@ const StoreInfo = () => {
   return (
     <div className="store-info">
       <img
-        src={'/images/store-image.jpg'}
+        src={'/images/pie-store-image.jpeg'}
         alt={store?.bakery}
         style={{ width: '400px', height: 'auto', borderRadius: '8px' }}
       />

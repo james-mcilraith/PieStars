@@ -8,7 +8,7 @@ export async function getPies(): Promise<Pie[]> {
     console.log('Backend Pies:', allPies) // Log the raw data returned from the database
     return allPies.map((pie) => ({
       ...pie, // Spread all the properties directly
-      img: pie.img || '/images/pie-cartoon.jpg', // Ensure img is null if missing
+      img: pie.img || '/images/pie-cartoon-image.jpeg', // Ensure img is null if missing
     }))
   } catch (error) {
     console.error('Error fetching pies:', error)
