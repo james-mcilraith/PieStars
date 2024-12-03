@@ -69,23 +69,25 @@ export async function getPiesByFlavor(flavor: string): Promise<Pie[]> {
 
 // Will this one work?
 // Fetch a single pie by flavor
-// export async function getPieByFlavor(flavor: string): Promise<Pie | null> {
-//   try {
-//     console.log('Fetching a single pie with flavor:', flavor)
-//     const result = await request.get(`${baseUrl}/flavor/${flavor}`)
-//     console.log('Single pie by flavor:', result.body)
+export async function getPieByFlavor(flavor: string): Promise<Pie | null> {
+  try {
+    console.log('Fetching a single pie with flavor:', flavor)
+    const result = await request.get(`${baseUrl}/flavor/${flavor}`)
+    console.log('Single pie by flavor:', result.body)
 
-//     if (result.body.length > 0) {
-//       // Return the first pie, with a fallback image if not present
-//       return {
-//         ...result.body[0],
-//         img: result.body[0].img || '/images/pie-cartoon.jpg', // Default image if none exists
-//       }
-//     } else {
-//       return null // No pie found for this flavor
-//     }
-//   } catch (error) {
-//     console.error(`Error fetching single pie by flavor ${flavor}:`, error)
-//     throw new Error(`Failed to fetch pie for flavor ${flavor}`)
-//   }
-// }
+    if (result.body.length > 0) {
+      // Return the first pie, with a fallback image if not present
+      return {
+        ...result.body[0],
+        img: result.body[0].img || '/images/pie-cartoon.jpg', // Default image if none exists
+      }
+    } else {
+      return null // No pie found for this flavor
+    }
+  } catch (error) {
+    console.error(`Error fetching single pie by flavor ${flavor}:`, error)
+    throw new Error(`Failed to fetch pie for flavor ${flavor}`)
+  }
+}
+
+
