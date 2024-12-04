@@ -5,7 +5,6 @@ import { Pie, User } from '../../models/pies'
 export async function getPies(): Promise<Pie[]> {
   try {
     const allPies = await db('BakeryAwards')
-    console.log('Backend Pies:', allPies) // Log the raw data returned from the database
     return allPies.map((pie) => ({
       ...pie, // Spread all the properties directly
       img: pie.img || '/images/pie-cartoon-image.jpeg', // Ensure img is null if missing

@@ -12,6 +12,7 @@ export const seed = async function (knex) {
       baker: 'Mr Cheth Bun',
       bakery: 'Eurobake Espresso Ltd',
       address: '45 Main Road, Kumeū 0810, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -19,6 +20,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Theara Keo',
       bakery: 'Taste Bakery and Roast',
       address: '226-250 Lincoln Road, Henderson, Auckland 0610, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -26,6 +28,7 @@ export const seed = async function (knex) {
       baker: 'Mr Seila Ly',
       bakery: 'Hillcrest Bakery & Cafe',
       address: '145 Cambridge Road, Hillcrest, Hamilton 3216, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -33,6 +36,7 @@ export const seed = async function (knex) {
       baker: 'Mr Tola Chhunleng',
       bakery: 'Freemans Bakery and Cafe',
       address: '2/444 Glenfield Road, Glenfield, Auckland, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -40,6 +44,7 @@ export const seed = async function (knex) {
       baker: 'Mr Sean Vo',
       bakery: 'Levain Artisan bakery',
       address: '224 White Swan Road, Mount Roskill, Auckland 1041, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -47,6 +52,7 @@ export const seed = async function (knex) {
       baker: 'Mr Patrick Lam',
       bakery: 'Patricks Pie Group Limited',
       address: '2 Taurikura Drive, Tauriko, Tauranga 3110, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -61,6 +67,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Tina Yi',
       bakery: 'Mairangi Bay Bakery',
       address: '366D Beach Road, Mairangi Bay, Auckland 0630, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -68,6 +75,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Sopheap Long',
       bakery: 'Euro Patisserie Torbay',
       address: '1028 Beach Road, Torbay, Auckland 0630, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -75,6 +83,7 @@ export const seed = async function (knex) {
       baker: 'Mr Sok Heang Nguon',
       bakery: 'Taste Cafe and Bakery',
       address: '1A Crayford Street West, Avondale, Auckland 1026, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
 
     // Mince & Gravy
@@ -84,6 +93,7 @@ export const seed = async function (knex) {
       baker: 'Ms Arlyn Thompson',
       bakery: 'Rangiora Bakery',
       address: '18 High Street, Rangiora 7400, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -91,6 +101,7 @@ export const seed = async function (knex) {
       baker: 'Mr Soem Top',
       bakery: 'Dinsdale Bakery',
       address: '18 Whatawhata Road, Dinsdale, Hamilton 3204, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -98,6 +109,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Tina Yi',
       bakery: 'Mairangi Bay bakery',
       address: '366D Beach Road, Mairangi Bay, Auckland 0630, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -105,6 +117,7 @@ export const seed = async function (knex) {
       baker: 'Mr Jason Hay',
       bakery: 'Richoux Patisserie Ellerslie',
       address: '119 Main Highway, Ellerslie, Auckland 1051, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -112,6 +125,7 @@ export const seed = async function (knex) {
       baker: 'Mr Kaing Sok',
       bakery: 'My Bakery Cafe',
       address: '6/4055 Great North Road, Glen Eden, Auckland, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -119,6 +133,7 @@ export const seed = async function (knex) {
       baker: 'Mr Cheth Bun',
       bakery: 'Eurobake Espresso Ltd',
       address: '45 Main Road, Kumeū 0810, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -126,6 +141,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Vicheka Se',
       bakery: 'Green Bay bakery',
       address: '58A Godley Road, Green Bay, Auckland 0604, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -133,6 +149,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Theara Keo',
       bakery: 'Taste Bakery and Roast',
       address: '226-250 Lincoln Road, Henderson, Auckland 0610, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -140,6 +157,7 @@ export const seed = async function (knex) {
       baker: 'Mr Jason Danielson',
       bakery: 'Kaipai Bakery',
       address: '27 Frederick Street, Wānaka 9305, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
     {
       flavor: 'Mince & Gravy',
@@ -147,6 +165,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Sopheap Long',
       bakery: 'Euro Patisserie Torbay',
       address: '1028 Beach Road, Torbay, Auckland 0630, New Zealand',
+      img: '/images/mince-gravy.jpeg',
     },
 
     //Mince & Cheese
@@ -163,6 +182,7 @@ export const seed = async function (knex) {
       baker: 'Mr Kaing Sok',
       bakery: 'My Bakery Cafe',
       address: '6/4055 Great North Road, Glen Eden, Auckland, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
@@ -177,6 +197,7 @@ export const seed = async function (knex) {
       baker: 'Mr Jason Hay',
       bakery: 'Richoux Patisserie Ellerslie',
       address: '119 Main Highway, Ellerslie, Auckland 1051, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
@@ -184,6 +205,7 @@ export const seed = async function (knex) {
       baker: 'Mr Jason Danielson',
       bakery: 'Kaipai Bakery',
       address: '27 Frederick Street, Wānaka 9305, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
@@ -191,6 +213,7 @@ export const seed = async function (knex) {
       baker: 'Mr Mab Chheur',
       bakery: 'Angkor Wat Kiwi Bakery and Cafe',
       address: '110 Dickens Street, Napier South, Napier 4110, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
@@ -198,6 +221,7 @@ export const seed = async function (knex) {
       baker: 'Mr Chamnan Ly',
       bakery: 'Piefee',
       address: '349 Karangahape Road, Auckland CBD, Auckland 1010, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
@@ -205,6 +229,7 @@ export const seed = async function (knex) {
       baker: 'Mr Sheng Pheng Rong',
       bakery: 'Panorama Bakery and Cafe',
       address: '44 Panorama Road, Mount Wellington, Auckland 1060, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
@@ -212,6 +237,7 @@ export const seed = async function (knex) {
       baker: 'Mr Seila Ly',
       bakery: 'Hillcrest Bakery & Cafe',
       address: '145 Cambridge Road, Hillcrest, Hamilton 3216, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
@@ -219,6 +245,7 @@ export const seed = async function (knex) {
       baker: 'Mr Kim Sroeun',
       bakery: 'Quality Inn bakery',
       address: '34 Arawa Street, Matamata 3400, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
   ])
 }
