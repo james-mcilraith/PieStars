@@ -1,6 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
 import { getData } from '../../apis/api'
 import { UserRating } from '../../../models/pies'
 import { Link } from 'react-router-dom'
@@ -13,9 +12,6 @@ function User() {
     queryFn: () => getData(user?.sub as string),
   })
 
-  const [users] = useState({
-    name: 'Thomas',
-  })
   if (isPending) {
     return <div>Pending pies...</div>
   }
@@ -25,13 +21,15 @@ function User() {
       <div>There was an error loading the pies. Please try again later.</div>
     )
   }
+  const sortedData = data.sort(
+    (a: UserRating, b: UserRating) => b.rating - a.rating,
+  )
 
   return (
     <div>
       <h2 className="profile-name">
         {isAuthenticated ? user?.name : 'people'}&apos;s Profile
       </h2>
-      {/* <h1>Hi {isAuthenticated ? user?.name : 'people'}</h1> */}
       <img
         src={'/images/pie-cartoon-image.jpeg'}
         alt={'pie'}
@@ -52,7 +50,7 @@ function User() {
             </tr>
           </thead>
           <tbody>
-            {data.map((rating: UserRating) => (
+            {sortedData.map((rating: UserRating) => (
               <tr key={rating.pieId}>
                 <td>
                   <Link to={`/pies/${rating.pieId}`}>{rating.flavor}</Link>{' '}
