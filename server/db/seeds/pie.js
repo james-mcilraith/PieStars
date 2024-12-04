@@ -192,6 +192,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Sopheap Long',
       bakery: 'Euro Patisserie Torbay',
       address: '1028 Beach Road, Torbay, Auckland 0630, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',
