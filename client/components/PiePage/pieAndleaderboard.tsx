@@ -2,28 +2,21 @@
 import Leaderboard from './Leaderboard'
 import { Outlet } from 'react-router-dom'
 
-
 const Pieboard = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around'}}>
-      <div>
-      {/* <div style={{ display: 'flex' }}> */}
-        <div style={{ flex: '1', marginTop: '10%' }}></div>
-        <div style={{ flex: '2', paddingRight: '10px' }}></div>
+    <div className="pieboard-container">
+      <div className="left-column">
         <div>
-        <Leaderboard />
+          <Leaderboard />
         </div>
       </div>
-
-        {/* <div style={{ display: 'flex' }}> */}
-        {/* <div style={{ flex-direction:'right' }} ></div> */}
-        <div style={{ flex: '1', marginTop: '10%' }}></div>
-        <div style={{ flex: '2', paddingLeft: '100px' }}></div>
-        <div>
+      <div className="spacer"></div>{' '}
+      <div className="right-column">
+        <div className="outlet-container">
           <Outlet />
         </div>
       </div>
-    // </div>
+    </div>
   )
 }
 

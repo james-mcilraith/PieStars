@@ -10,6 +10,7 @@ export function up(knex) {
     table.string('baker', 50).notNullable() // Name of the baker
     table.string('bakery', 100).notNullable() // Name of the bakery
     table.string('address', 255).notNullable() // Address of the bakery
+    table.string('img') // Pie image
   })
 }
 
