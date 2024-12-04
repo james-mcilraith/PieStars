@@ -5,8 +5,7 @@ import StoreInfo from './StorePage/StoreInfo'
 import PiesList from './PiePage/PiesList'
 import StoreList from './StorePage/StoreList'
 import OnePie from './PiePage/OnePie'
-import Leaderboard from './PiePage/Leaderboard'
-import LeaderboardFlavor from './LandingPage/LeaderboardFlavor'
+
 import Pieboard from './PiePage/pieAndleaderboard'
 import User from './LandingPage/User'
 
@@ -19,9 +18,9 @@ const App = () => {
           <Route path="/pies/" element={<PiesList />} />
           <Route path="/user/" element={<User />} />
           <Route path="/stores" element={<StoreList />} />
-          <Route path="/flavor/:flavor" element={<Pieboard />} >
-              <Route path=":id" element={<OnePie />} />
-          </Route> 
+          <Route path="/flavor/:flavor" element={<Pieboard />}>
+            <Route path=":id" element={<OnePie />} />
+          </Route>
           <Route path="/pies/:id" element={<OnePie />} />
           <Route path="/stores/:id" element={<StoreInfo />} />
         </Route>

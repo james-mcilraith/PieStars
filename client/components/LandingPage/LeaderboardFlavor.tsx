@@ -26,7 +26,7 @@ const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
   console.log(leaderboard)
   return (
     <div>
-      <h2>The no Leaderboard</h2>
+      <h2>The Flavor Leaderboard</h2>
       <div className="leaderboard-container">
         <table className="leaderboard-table">
           <thead>

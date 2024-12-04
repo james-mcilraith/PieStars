@@ -60,6 +60,7 @@ export const seed = async function (knex) {
       baker: 'Mr Tongmin Li',
       bakery: 'Hillpark Bakery Manurewa',
       address: '75 Grande Vue Road, Hillpark, Auckland 2102, New Zealand',
+      img: '/images/bacon-egg.jpeg',
     },
     {
       flavor: 'Bacon & Egg',
@@ -175,6 +176,7 @@ export const seed = async function (knex) {
       baker: 'Mrs Theara Keo',
       bakery: 'Taste Bakery and Roast',
       address: '226-250 Lincoln Road, Henderson, Auckland 0610, New Zealand',
+      img: '/images/mince-cheese.jpeg',
     },
     {
       flavor: 'Mince & Cheese',

@@ -26,8 +26,8 @@ const Leaderboard = () => {
   }
   console.log(leaderboard)
   return (
-  <div>
-      <h2>The hi Leaderboard</h2>
+    <div>
+      <h2>The Pie Flavor Leaderboard</h2>
       <div className="leaderboard-container">
         <table className="leaderboard-table">
           <thead>
