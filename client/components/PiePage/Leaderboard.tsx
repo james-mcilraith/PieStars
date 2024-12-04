@@ -43,7 +43,7 @@ const Leaderboard = () => {
                 <td>
                   <Link to={`${pie.id}`}>{pie.flavor}</Link>{' '}
                 </td>
-                <td>{pie.place} stars</td>
+                <td>{pie.place}</td>
                 <td>
                   <Link to={`/stores/${pie.bakery}`}>{pie.bakery}</Link>{' '}
                 </td>

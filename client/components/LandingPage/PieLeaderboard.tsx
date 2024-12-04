@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getPiesByFlavor } from '../../apis/api'
 
-const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
+const PieLeaderboard = ({ pieflavor }: { pieflavor: string }) => {
   const {
     data: leaderboard,
     isError,
@@ -26,7 +26,7 @@ const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
   console.log(leaderboard)
   return (
     <div>
-      <h2>The yes Leaderboard</h2>
+      <h2>The Leaderboard</h2>
       <div className="leaderboard-container">
         <table className="leaderboard-table">
           <thead>
@@ -44,7 +44,7 @@ const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
                 </td>
                 <td>{pie.place} stars</td>
                 <td>
-                  <Link to={`/stores/${pie.bakery}`}>{pie.bakery}</Link>{' '}
+                  <Link to={`/store/${pie.bakery}`}>{pie.bakery}</Link>{' '}
                 </td>
               </tr>
             ))}
@@ -55,4 +55,4 @@ const Leaderboard = ({ pieflavor }: { pieflavor: string }) => {
   )
 }
 
-export default Leaderboard
+export default PieLeaderboard

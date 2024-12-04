@@ -44,7 +44,7 @@ const BestPies = () => {
                   alt={pie.flavor}
                   className="pie-image"
                 />
-                <p>{pie.place} Award</p>
+                <p>{pie.place}</p>
                 <p>{pie.bakery}</p>
               </Link>
             </div>
